@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{754C9744-87F9-4979-95BB-E4E88FE56AD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Speedy</RootNamespace>
+    <AssemblyName>Speedy</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="MelonLoader">
+      <HintPath>..\..\QuestMods\melonloader\etc\MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnhollowerBaseLib">
+      <HintPath>..\..\QuestMods\melonloader\etc\support\UnhollowerBaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnhollowerRuntimeLib">
+      <HintPath>..\..\QuestMods\melonloader\etc\support\UnhollowerRuntimeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.ClientBindings, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.ClientBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Common, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Security, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Serialization.AOT">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.Serialization.AOT.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Serialization.OdinSerializer, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.Serialization.OdinSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VM, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.VM.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.VRCWrapperModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Wrapper">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRC.Udon.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCCore-Standalone">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRCCore-Standalone.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\VRCSDKBase.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\QuestMods\melonloader\etc\managed\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
