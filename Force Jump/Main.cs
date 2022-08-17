@@ -1,21 +1,38 @@
-﻿using System.Collections;
+using System.Collections;
 using MelonLoader;
 using UnityEngine;
 using VRC.SDKBase;
+using System;
+using System.Runtime.CompilerServices;
+using MelonLoader;
+using TMPro;
+using UnityEngine.UI;
+using VRC;
+using VRC.Animation;
 
 namespace Speed
 {
     class Main : MelonMod
     {
+        private bool flytoggle = false;
+        private VRCMotionState _motionState;
+        private Vector3 _originalGravity;
+        private bool canset;
+        private bool loaded;
         private bool speedup = false;
         public int speed = 3;
 
         public override void OnApplicationStart()
         {
+            MelonLogger.Msg("Credits to: catnotadog, Cyril XD, xox-Toxic");
             MelonCoroutines.Start(waitforui());
         }
-        
-                
+        private Transform camera()
+        {
+            return VRCPlayer.field_Internal_Static_VRCPlayer_0.transform;
+        }
+
+        [MethodImpl(MethodImplOptions.NoOptimization)]
         private IEnumerator waitforui()
         {
             MelonLogger.Msg("Waiting For Ui");
@@ -38,9 +55,9 @@ namespace Speed
             GameObject.DestroyImmediate(inst.transform.Find("Container/Icon").gameObject);
             var btn = inst.GetComponent<UnityEngine.UI.Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(new System.Action(() => 
-            { 
-            Networking.LocalPlayer.SetJumpImpulse(jumps = jumps + 1);
+            btn.onClick.AddListener(new System.Action(() =>
+            {
+                Networking.LocalPlayer.SetJumpImpulse(jumps = jumps + 1);
                 VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = true;
             }));
             //------------------------------------------------------------------------------------------------------------------------------------------------------------Jump Button Section - Remove Points
@@ -55,7 +72,7 @@ namespace Speed
             btns.onClick.RemoveAllListeners();
             btns.onClick.AddListener(new System.Action(() =>
             {
-                Networking.LocalPlayer.SetJumpImpulse(jumps = jumps -1);
+                Networking.LocalPlayer.SetJumpImpulse(jumps = jumps - 1);
                 VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = true;
             }));
             //------------------------------------------------------------------------------------------------------------------------------------------------------------Speed Button Section - Add Speed
@@ -92,19 +109,85 @@ namespace Speed
                 Networking.LocalPlayer.SetRunSpeed(Speeds);
                 VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = true;
             }));
+            //---------------------------------------------------------------------------------------------------------------------------------------------------------Flight buutton - Toggle Flight -- Thanks to catnotdog for making this possible
+
+            MelonLogger.Msg("Waiting For Ui");
+            while (GameObject.Find("UserInterface") == null)
+                yield return null;
+
+            while (GameObject.Find("UserInterface").transform.Find("Canvas_QuickMenu(Clone)") == null)
+                yield return null;
+
+            MelonLogger.Msg("Ui loaded");
+
+            var toinstd = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Right/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
+            var instd = GameObject.Instantiate(toinstd, toinstd.parent).gameObject;
+            var txtd = instd.transform.Find("Container/Text_QM_H3").GetComponent<TMPro.TextMeshProUGUI>();
+            txtd.richText = true;
+            txtd.text = $"<color=#000080ff>Fly</color>";
+            GameObject.DestroyImmediate(instd.transform.Find("Container/Icon").gameObject);
+            var btnd = instd.GetComponent<UnityEngine.UI.Button>();
+            btnd.onClick.RemoveAllListeners();
+            btnd.onClick.AddListener(new System.Action(() => { flytoggle = !flytoggle; _ = flytoggle ? txtd.text = $"<color=#ff0000ff>fly</color>" : txtd.text = $"<color=#000080ff>fly</color>"; VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = !flytoggle; }));
+            //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
         }
-
+        //The Random Shit of how fly works ------------------------------------------- Thanks to CatNotADog :)
         public override void OnUpdate()
         {
-            if (true) return;
+            if (!flytoggle)
 
             {
-//Not Needed Currently
+                if (this.loaded)
+                {
+                    Physics.gravity = this._originalGravity;
+                }
             }
+            else if (flytoggle && !(Physics.gravity == Vector3.zero))
+            {
+                this._originalGravity = Physics.gravity;
+                Physics.gravity = Vector3.zero;
+                return;
+            }
+            float num = Input.GetKey((KeyCode)304) ? (Time.deltaTime * 15f) : (Time.deltaTime * 10f);
+            if (this.flytoggle && !(Player.prop_Player_0.gameObject == null))
+            {
+                if (Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical") < -0.5f)
+                {
+                    Player.prop_Player_0.gameObject.transform.position -= camera().up * num;
+                }
+                if (Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical") > 0.5f)
+                {
+                    Player.prop_Player_0.gameObject.transform.position += camera().up * num;
+                }
+                if (Input.GetAxis("Vertical") != 0f)
+                {
+                    Player.prop_Player_0.gameObject.transform.position += camera().forward * (num * Input.GetAxis("Vertical"));
+                }
+                if (Input.GetAxis("Horizontal") != 0f)
+                {
+                    Player.prop_Player_0.gameObject.transform.position += camera().transform.right * (num * Input.GetAxis("Horizontal"));
+                    return;
+                }
+            } //UnityEngine.KeyCode
+
+            // prop_Player_0.gameObject
 
         }
-
+        public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+        {
+            if (buildIndex == -1)
+            {
+                this._originalGravity = Physics.gravity;
+                this.canset = false;
+                this.loaded = true;
+            }
+        }
     }
 }
