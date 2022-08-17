@@ -13,7 +13,7 @@ Important
 To-Do
 - Combine Jump and Speed Mod ✔️
 - Add better fly (By catnotadog)✔️
-- Add any future movement created by others or myseld (Potentially Teleporting options in future one i have learned more)
+- Add any future movement created by others or myself (Potentially Teleporting options in future one i have learned more)
 - Add All the buttons inside of one menu ...**Currently Learning on how this could be made**
 
 
