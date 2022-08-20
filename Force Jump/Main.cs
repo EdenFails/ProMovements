@@ -128,7 +128,7 @@ namespace Speed
             GameObject.DestroyImmediate(instd.transform.Find("Container/Icon").gameObject);
             var btnd = instd.GetComponent<UnityEngine.UI.Button>();
             btnd.onClick.RemoveAllListeners();
-            btnd.onClick.AddListener(new System.Action(() => { flytoggle = !flytoggle; _ = flytoggle ? txtd.text = $"<color=#ff0000ff>fly</color>" : txtd.text = $"<color=#000080ff>fly</color>"; VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = !flytoggle; }));
+            btnd.onClick.AddListener(new System.Action(() => { flytoggle = !flytoggle; _ = flytoggle ? txtd.text = $"<color=#ff0000ff>Fly</color>" : txtd.text = $"<color=#000080ff>Fly</color>"; VRC.Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = !flytoggle; }));
             //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
