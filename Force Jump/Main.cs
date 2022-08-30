@@ -132,7 +132,7 @@ namespace Speed
 
                 }));
                 //------------------------------------------------------------------------------------------------------------------------------------------------------------Speed Button Section - Add Speed
-                var toinstss = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Left/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
+                var toinstss = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Right/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
                 var instss = GameObject.Instantiate(toinstss, toinstss.parent).gameObject;
                 instss.name = "Button jump";
                 var txtss = instss.transform.Find("Container/Text_QM_H3").GetComponent<TMPro.TextMeshProUGUI>();
@@ -149,7 +149,7 @@ namespace Speed
 
                 }));
                 //------------------------------------------------------------------------------------------------------------------------------------------------------------Speed Button Section - Remove Speed
-                var toinstssd = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Left/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
+                var toinstssd = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Right/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
                 var instssd = GameObject.Instantiate(toinstssd, toinstssd.parent).gameObject;
                 instssd.name = "Button jump";
                 var txtssd = instssd.transform.Find("Container/Text_QM_H3").GetComponent<TMPro.TextMeshProUGUI>();
@@ -204,7 +204,7 @@ namespace Speed
 
                 //-------------------------------------------------------------------------------------------------------------------------------------
 
-                var toinstres = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Left/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
+                var toinstres = GameObject.Find("/UserInterface").transform.Find("Canvas_QuickMenu(Clone)/Container/Window/Wing_Right/Container/InnerContainer/WingMenu/ScrollRect/Viewport/VerticalLayoutGroup/Button_Emotes");
                 var instsres = GameObject.Instantiate(toinstres, toinstres.parent).gameObject;
                 instsres.name = "Button Speed Reset";
                 var txtsres = instsres.transform.Find("Container/Text_QM_H3").GetComponent<TMPro.TextMeshProUGUI>();
