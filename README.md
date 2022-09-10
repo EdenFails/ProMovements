@@ -5,7 +5,7 @@ vrchat mod for quest
 This mod has Combined the mods released by 'Cyril XD' and has been be better by allowing you to change the value of your speed and jump height.
 Also now includes the improved flight mod from CatNotADog, Special thanks for allowing me to use it in this mod.
 
-***CURRENTLY THE MOD IS BROKEN IN NEW UI, I WILL FIX ASAP ONCE I GET NRE BUTTON API***
+***CURRENTLY THE MOD IS BROKEN IN NEW UI, I WILL FIX ASAP ONCE I GET A NEW BUTTON API***
 
 
 
