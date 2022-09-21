@@ -6,7 +6,7 @@ This mod allows you to fly, jump (change height) in any world, Change your speed
 
 ***Fixed to work with the new shitty vrchat ui update***
 
-
+**use an older release for live branch of vrc, most up to date version is for beta which may be broke upon then updating beta**
 
 To-Do
 - Combine Jump and Speed Mod ✔️
