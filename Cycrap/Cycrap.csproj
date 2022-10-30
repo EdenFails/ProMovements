@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{754C9744-87F9-4979-95BB-E4E88FE56AD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProMovements</RootNamespace>
+    <AssemblyName>ProMovements</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IUserExtension.cs" />
+    <Compile Include="EnableDisableListener.cs" />
+    <Compile Include="Info.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Managers\ConfigManager.cs" />
+    <Compile Include="Managers\ResourceManager.cs" />
+    <Compile Include="Managers\UiManager.cs" />
+    <Compile Include="Misc\Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickMenuEx.cs" />
+    <Compile Include="QuickMenu\IButtonPage.cs" />
+    <Compile Include="QuickMenu\ReCategoryPage.cs" />
+    <Compile Include="QuickMenu\ReMenuButton.cs" />
+    <Compile Include="QuickMenu\ReMenuCategory.cs" />
+    <Compile Include="QuickMenu\ReMenuPage.cs" />
+    <Compile Include="QuickMenu\ReMenuSlider.cs" />
+    <Compile Include="QuickMenu\ReMenuToggle.cs" />
+    <Compile Include="QuickMenu\ReRadioToggle.cs" />
+    <Compile Include="QuickMenu\ReRadioTogglePage.cs" />
+    <Compile Include="QuickMenu\ReSliderCategory.cs" />
+    <Compile Include="QuickMenu\ReTabButton.cs" />
+    <Compile Include="UiElement.cs" />
+    <Compile Include="Wings\ReMirroredWingButton.cs" />
+    <Compile Include="Wings\ReMirroredWingMenu.cs" />
+    <Compile Include="Wings\ReMirroredWingToggle.cs" />
+    <Compile Include="Wings\ReWingButton.cs" />
+    <Compile Include="Wings\ReWingMenu.cs" />
+    <Compile Include="Wings\ReWingToggle.cs" />
+    <Compile Include="XrefUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="AVProVideo.Extensions.Timeline">
+      <HintPath>..\..\melonloader\etc\managed\AVProVideo.Extensions.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="AVProVideo.Extensions.UnityUI">
+      <HintPath>..\..\melonloader\etc\managed\AVProVideo.Extensions.UnityUI.dll</HintPath>
+    </Reference>
+    <Reference Include="AVProVideo.Extensions.VisualEffectGraph">
+      <HintPath>..\..\melonloader\etc\managed\AVProVideo.Extensions.VisualEffectGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="AVProVideo.Runtime, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\AVProVideo.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BeeByteObfuscator">
+      <HintPath>..\..\melonloader\etc\managed\BeeByteObfuscator.dll</HintPath>
+    </Reference>
+    <Reference Include="BlobHandles.Runtime, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\BlobHandles.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>..\..\melonloader\etc\managed\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="clipper_library">
+      <HintPath>..\..\melonloader\etc\managed\clipper_library.dll</HintPath>
+    </Reference>
+    <Reference Include="Collections.Pooled">
+      <HintPath>..\..\melonloader\etc\managed\Collections.Pooled.dll</HintPath>
+    </Reference>
+    <Reference Include="DataModel, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween.Modules">
+      <HintPath>..\..\melonloader\etc\managed\DOTween.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppMono.Security, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppMono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Buffers, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Collections.Immutable, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Configuration, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Core, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Diagnostics.StackTrace">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Globalization.Extensions">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.IO.Compression">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Memory, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Numerics.Vectors, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Runtime">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Runtime.Serialization">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Threading.Tasks.Extensions, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.ValueTuple">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Xml, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Xml.Linq">
+      <HintPath>..\..\melonloader\etc\managed\Il2CppSystem.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="MelonLoader, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\..\melonloader\etc\managed\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.Platform, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Oculus.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.VR, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Oculus.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="OscCore.Runtime, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\OscCore.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon-DotNet, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Photon-DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Sigtrap.VrTunnellingPro">
+      <HintPath>..\..\melonloader\etc\managed\Sigtrap.VrTunnellingPro.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\melonloader\etc\managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\..\melonloader\etc\managed\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Transmtn, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Transmtn.dll</HintPath>
+    </Reference>
+    <Reference Include="UnhollowerBaseLib, Version=0.4.15.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnhollowerBaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnhollowerRuntimeLib, Version=0.4.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnhollowerRuntimeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Addressables">
+      <HintPath>..\..\melonloader\etc\managed\UniTask.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>..\..\melonloader\etc\managed\UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Linq">
+      <HintPath>..\..\melonloader\etc\managed\UniTask.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.TextMeshPro">
+      <HintPath>..\..\melonloader\etc\managed\UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>..\..\melonloader\etc\managed\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>..\..\melonloader\etc\managed\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Collections, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Dynamics, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Dynamics.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.SDK3.Dynamics.Contact, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.SDK3.Dynamics.Contact.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.SDK3.Dynamics.PhysBone, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.SDK3.Dynamics.PhysBone.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.SDKBase.Editor.BuildPipeline, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.SDKBase.Editor.BuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.ClientBindings, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.ClientBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Common, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Security, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Serialization.AOT, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.Serialization.AOT.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Serialization.OdinSerializer, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.Serialization.OdinSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VM, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.VM.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.VRCWrapperModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Wrapper, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Udon.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.UI.Core, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.UI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.UI.Elements, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.UI.Elements.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.UI.Shared, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.UI.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Utility, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRC.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCCore-Editor, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCCore-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCCore-Standalone, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCCore-Standalone.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCLog, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCLog.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK2, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCSDK2.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3A, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCSDK3A.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\VRCSDKBase.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\melonloader\etc\managed\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
